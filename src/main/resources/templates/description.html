@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Description</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<body class="body2">
+<div class="container2">
+    <h1 class="main-title2">Description</h1>
+    <table class="table2">
+        <tbody>
+        <tr>
+            Name : <span th:text="${character.name}"></span>
+            <br>
+            Status: <span th:text="${character.status}"></span>
+            <br>
+            Species: <span th:text="${character.species}"></span>
+            <br>
+            Type: <span th:text="${character.type}"></span>
+            <br>
+            Gender : <span th:text="${character.gender}"></span>
+            <br>
+            Link on json with description :<a th:href="@{|${character.url}|}">Character</a>
+            <br>
+            Link on image : <a th:href="@{|${character.image}|}">Image</a>
+            <br>
+            Created : <span th:text="${character.created}"></span>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<br>
+<br>
+<div class="navigation">
+    <a th:if="${id != 1}" th:href="@{/{id}(id=${id - 1})}" class="btn">Prev Character</a>
+    <a th:if="${id < countCharacter}" th:href="@{/{id}(id=${id + 1})}" class="btn">Next Character</a>
+</div>
+</body>
+</html>
